@@ -8,16 +8,14 @@ export const index = `
             <!-- Open Graph / Facebook -->
             <meta property="og:type" content="website">
             <meta property="og:url" content="https://kiku.kittenzexe.com/">
-            <meta property="og:title" content="KittenzExe's Website!">
-            <meta property="og:description" content="Welcome to the web view of kittenz.exe!">
-            <meta property="og:image" content="https://kittenzexe.com/HeheheE.webp">
+            <meta property="og:title" content="Kiku API">
+            <meta property="og:description" content="An API to get your Spotify status through discord">
         
             <!-- Twitter -->
             <meta property="twitter:card" content="summary_large_image">
             <meta property="twitter:url" content="https://kiku.kittenzexe.com/">
-            <meta property="twitter:title" content="KittenzExe's Website!">
-            <meta property="twitter:description" content="Welcome to the web view of kittenz.exe!">
-            <meta property="twitter:image" content="https://kittenzexe.com/HeheheE.webp">
+            <meta property="twitter:title" content="Kiku API">
+            <meta property="twitter:description" content="An API to get your Spotify status through discord">
         
             <meta name="theme-color" content="#434089">
 
@@ -48,7 +46,7 @@ export const index = `
         <body style="width: 100vw; height: 100vh; background-color: #000000; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden;">
             <div style="align-items: left;">
                 <h1 style="margin-left: 12px;">Kiku</h1>
-                <p style="font-family: 'Comfortaa', sans-serif;">Fetch your real-time <span style="color: #434089;">Discord</span> activity status</p>
+                <p style="font-family: 'Comfortaa', sans-serif;">An API to get your Spotify status through discord</p>
                 <p style="font-family: 'Comfortaa', sans-serif;">Visit <a href="https://github.com/kittenzexe/kiku">/setup</a> to get started</p>
             </div>
             <p style="position: absolute; left: 0px; bottom: 0px;">© KittenzExe 2024 <a style="color: #7d77d7;" href="https://kittenzexe.com">(kittenzexe.com)</a></p>
