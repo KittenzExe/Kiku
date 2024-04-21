@@ -25,3 +25,7 @@ An API to get your Spotify status through discord
 ## Contributing
 
 Any contribution is welcome. This has been an off and on project for the past few weeks so my horrible code might need some fixes. I plan to implement some more features in the future though so be prepared.
+
+## License
+
+Under the [GNU Affero General Public License v3.0](https://github.com/KittenzExe/kiku?tab=AGPL-3.0-1-ov-file)
