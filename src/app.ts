@@ -2,12 +2,15 @@ import express from 'express';
 import path from 'path';
 import dotenv from 'dotenv';
 import mysql from 'mysql2';
+import cors from 'cors'; // Add this line
 
 import { index } from '../serve/index';
 import { RowDataPacket } from 'mysql2';
 
 const app = express();
 const port = 1545;
+
+app.use(cors());
 
 dotenv.config();
 
