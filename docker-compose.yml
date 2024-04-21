@@ -1,0 +1,8 @@
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - "1545:1545"
+    volumes:
+      - .:/usr/src/app

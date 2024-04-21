@@ -1,0 +1,19 @@
+{
+  "name": "kiku",
+  "version": "1.0.0",
+  "description": "An API to get your Spotify status through discord",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.21",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mysql2": "^3.9.4",
+    "tailwindcss": "^3.4.3",
+    "ts-node": "^10.9.2"
+  }
+}
