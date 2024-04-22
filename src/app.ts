@@ -3,17 +3,19 @@ import path from 'path';
 import dotenv from 'dotenv';
 import mysql from 'mysql2';
 import cors from 'cors';
-import { createServer } from 'http';
-import { Server } from 'ws';
+import http from 'http';
+import WebSocket from 'ws';
+import { parse } from 'url';
 
 import { index } from '../serve/index';
+import { user } from '../serve/user';
 import { RowDataPacket } from 'mysql2';
 
 const app = express();
 const port = 1545;
 
-const server = createServer(app);
-const wss = new Server({ server });
+const server = http.createServer(app);
+const wss = new WebSocket.Server({ server });
 
 app.use(cors());
 
@@ -62,6 +64,11 @@ app.get('/setup', (req, res) => {
     res.redirect('https://github.com/kittenzexe/kiku');
 });
 
+app.get('/v1/user/:uid', (req, res) => {
+    const uid = req.params.uid;
+    res.send(user(uid));
+});
+
 app.get('/v1/:uid', (req, res) => {
     const uid = req.params.uid;
 
@@ -78,7 +85,13 @@ app.get('/v1/:uid', (req, res) => {
 });
 
 wss.on('connection', (ws, req) => {
-    const uid = req.url?.split('/')[3];
+    const pathComponents = parse(req.url as string).pathname?.split('/');
+    const uid = pathComponents && pathComponents[pathComponents.length - 1];
+
+    if (!uid) {
+        ws.close(1008, 'Invalid request URL');
+        return;
+    }
 
     const sendData = () => {
         const sql = 'SELECT data FROM kiku WHERE uid = ?';
@@ -88,7 +101,7 @@ wss.on('connection', (ws, req) => {
             if (Array.isArray(results) && results.length > 0) {
                 ws.send(JSON.stringify(JSON.parse(results[0].data)));
             } else {
-                ws.send('User not found');
+                ws.send(JSON.stringify({ error: 'User not found' }));
             }
         });
     };
