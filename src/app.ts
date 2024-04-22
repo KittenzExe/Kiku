@@ -2,13 +2,18 @@ import express from 'express';
 import path from 'path';
 import dotenv from 'dotenv';
 import mysql from 'mysql2';
-import cors from 'cors'; // Add this line
+import cors from 'cors';
+import { createServer } from 'http';
+import { Server } from 'ws';
 
 import { index } from '../serve/index';
 import { RowDataPacket } from 'mysql2';
 
 const app = express();
 const port = 1545;
+
+const server = createServer(app);
+const wss = new Server({ server });
 
 app.use(cors());
 
@@ -72,8 +77,31 @@ app.get('/v1/:uid', (req, res) => {
     });
 });
 
-app.listen(port, () => {
-    console.log(`Running at http://localhost:${port}`);
+wss.on('connection', (ws, req) => {
+    const uid = req.url?.split('/')[3];
+
+    const sendData = () => {
+        const sql = 'SELECT data FROM kiku WHERE uid = ?';
+        db.query(sql, [uid], (err, results: RowDataPacket[]) => {
+            if (err) throw err;
+
+            if (Array.isArray(results) && results.length > 0) {
+                ws.send(JSON.stringify(JSON.parse(results[0].data)));
+            } else {
+                ws.send('User not found');
+            }
+        });
+    };
+
+    const intervalId = setInterval(sendData, 1000);
+
+    ws.on('close', () => {
+        clearInterval(intervalId);
+    });
+});
+
+server.listen(port, () => {
+    console.log(`HTTP and WebSocket server running at http://localhost:${port}`);
 });
 
 // what are comments?
