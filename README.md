@@ -41,3 +41,7 @@ Any contribution is welcome. This has been an off and on project for the past fe
 ## License
 
 Under the [GNU Affero General Public License v3.0](https://github.com/KittenzExe/kiku?tab=AGPL-3.0-1-ov-file)
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=KittenzExe/Kiku&type=Timeline)](https://star-history.com/#KittenzExe/Kiku&Timeline)
