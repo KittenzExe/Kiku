@@ -5,6 +5,12 @@ An API to get your Spotify status through discord
 > [!NOTE]
 > Discord bot is not open source right now, expect it to be added later.
 
+## Links
+
+- default api - https://kiku.kittenzexe.com/v1/your_user_id
+- websocket   - wss://kiku.kittenzexe.com/v1/your_user_id
+- user page   - https://kiku.kittenzexe.com/v1/user/your_user_id
+
 ## Setup
 
 - Join my [discord](https://discord.gg/Sq6GSbZjHj) (Where I have the bot hosted)
@@ -21,6 +27,12 @@ An API to get your Spotify status through discord
   - Scroll down to `advanced`
   - Enable `Developer Mode`
 - Then right click your profile and down the bottom you should see `Copy User ID`
+
+## Example
+
+![example](https://cdn.discordapp.com/attachments/1231582708539592766/1231929855906676776/Spotify_62pkhQ1qPT.gif?ex=66279b95&is=66264a15&hm=cd14a9356d3f49403fd3a44bdf68927856ff26eea00b0b5f031f5f2ee211001a&)
+(using websocket connection on my personal website!)
+
 
 ## Contributing
 
