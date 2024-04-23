@@ -44,8 +44,6 @@ Under the [GNU Affero General Public License v3.0](https://github.com/KittenzExe
 
 ## Star History
 
-## Star History
-
 <a href="https://star-history.com/#KittenzExe/Kiku&Timeline">
  <picture>
    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=KittenzExe/Kiku&type=Timeline&theme=dark" />
