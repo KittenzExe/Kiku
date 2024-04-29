@@ -17,7 +17,7 @@ export const index = `
             <meta property="twitter:title" content="Kiku API">
             <meta property="twitter:description" content="An API to get your Spotify status through discord">
         
-            <meta name="theme-color" content="#434089">
+            <meta name="theme-color" content="#bae3a6">
 
             <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
 
@@ -38,7 +38,7 @@ export const index = `
                     line-height: 0.5;
                 }
                 a {
-                    color: #434089;
+                    color: #bae3a6;
                     text-decoration: none;
                 }
             </style>
