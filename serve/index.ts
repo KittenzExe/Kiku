@@ -43,13 +43,14 @@ export const index = `
                 }
             </style>
         </head>
-        <body style="width: 100vw; height: 100vh; background-color: #000000; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden;">
+        <body style="width: 100vw; height: 100vh; margin: 0; background-color: #000000; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden;">
             <div style="align-items: left;">
                 <h1 style="margin-left: 12px;">Kiku</h1>
                 <p style="font-family: 'Comfortaa', sans-serif;">An API to get your Spotify status through discord</p>
                 <p style="font-family: 'Comfortaa', sans-serif;">Visit <a href="https://github.com/kittenzexe/kiku">/setup</a> to get started</p>
             </div>
             <p style="position: absolute; left: 0px; bottom: 0px;">© KittenzExe 2024 <a style="color: #7d77d7;" href="https://kittenzexe.com">(kittenzexe.com)</a></p>
+            <img src="/hikari.webp" alt="hikari" style="position: absolute; right: 0px; bottom: 0px; width: auto; height: 100vh; opacity: 0.05;">
         </body>
     </html>
 `;

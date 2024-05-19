@@ -20,6 +20,10 @@ An API to get your Spotify status through discord
 
 ## How to get you user ID
 
+### Using the Kiku Bot
+
+- Use `/userid` to get your user ID.
+
 ### Discord developer mode
 
 - If you havent enabled developer mode before, follow these steps
@@ -28,11 +32,29 @@ An API to get your Spotify status through discord
   - Enable `Developer Mode`
 - Then right click your profile and down the bottom you should see `Copy User ID`
 
-## Example
+## Examples
+
+### On a website
 
 ![example](https://cdn.discordapp.com/attachments/1231582708539592766/1231929855906676776/Spotify_62pkhQ1qPT.gif?ex=66279b95&is=66264a15&hm=cd14a9356d3f49403fd3a44bdf68927856ff26eea00b0b5f031f5f2ee211001a&)
 (using websocket connection on my personal website!)
 
+### Example for livestream overlay
+
+- [Kiku-Livestrean](https://github.com/KittenzExe/Kiku-livestream) (This is what I use for my streams)
+
+## Running
+
+### For local dev
+
+- npm install
+- npx ts-node src/app.ts
+- [localhost:1545](http://localhost:1545/)
+
+### For Docker
+
+- docker-compose up -d
+- [localhost:1545](http://localhost:1545/)
 
 ## Contributing
 
