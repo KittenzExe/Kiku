@@ -38,22 +38,14 @@ db.connect(err => {
         CREATE TABLE IF NOT EXISTS kiku (
             id INT AUTO_INCREMENT PRIMARY KEY,
             uid VARCHAR(255) NOT NULL,
-            data LONGTEXT NOT NULL
+            data LONGTEXT NOT NULL,
+            UNIQUE (uid)
         )
     `;
 
     db.query(createTableSql, function(err, results, fields) {
         if (err) throw err;
         console.log('Table created!');
-
-        const alterTableSql = `
-            ALTER TABLE kiku ADD UNIQUE (uid);
-        `;
-
-        db.query(alterTableSql, function(err, results, fields) {
-            if (err) throw err;
-            console.log('Table altered!');
-        });
     });
 });
 
@@ -97,8 +89,25 @@ wss.on('connection', (ws, req) => {
     const sendData = () => {
         const sql = 'SELECT data FROM kiku WHERE uid = ?';
         db.query(sql, [uid], (err, results: RowDataPacket[]) => {
-            if (err) throw err;
+            if (err) {
+                console.error(err);
 
+                let connectionAttepts = 0;
+                
+                if (connectionAttepts < 3) {
+                    console.log('Retrying connection...');
+                    connectionAttepts++;
+                    setTimeout(() => {
+                        db.connect();
+                    }, 1000);
+                } else {
+                    console.error('Failed to connect to the database after 3 attempts. Exiting app...');
+                    process.exit(1);
+                }
+                
+                return;
+            }
+    
             if (Array.isArray(results) && results.length > 0) {
                 ws.send(JSON.stringify(JSON.parse(results[0].data)));
             } else {
